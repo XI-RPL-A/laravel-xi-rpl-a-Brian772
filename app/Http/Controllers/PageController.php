@@ -27,23 +27,24 @@ class PageController extends Controller
 
     
     public function home() {
-        return 'Ini halaman Home';
+        return view('home');
     }
     public function productCategory($slug) {
-        return 'Ini halaman Product Category ' . $slug;
+        return view('category', ['slug' => $slug]);
     }
     public function news($slug = null) {
         if ($slug) {
-            return 'Ini halaman News ' . $slug;
+            return view('news', ['slug' => $slug]);
         } else {
-            return 'Menampilkan semua news';
+            return view('news-index');
         }
     }
+
     public function program($slug) {
-        return 'Ini halaman Program ' . $slug;
+        return view('program', ['slug' => $slug]);
     }
     public function aboutUs() {
-        return 'Ini halaman About Us';
+        return view('about-us');
     }
 
 }
