@@ -17,7 +17,22 @@ use App\Http\Controllers\PageController;
 // });
 
 
-Route::get('/', [PageController::class, 'index']);
-Route::get('/about', [PageController::class, 'about']);
-Route::get('/index', [PageController::class, 'index']);
-Route::get('/article/{id}', [PageController::class, 'article']);
+// Route::get('/', [PageController::class, 'index']);
+// Route::get('/about', [PageController::class, 'about']);
+// Route::get('/index', [PageController::class, 'index']);
+// Route::get('/article/{id}', [PageController::class, 'article']);
+
+
+Route::get('/', [PageController::class, 'home']);
+
+Route::prefix('category')->group(function () {
+    Route::get('/{slug}', [PageController::class, 'productCategory']);
+});
+
+Route::get('/news/{slug?}', [PageController::class, 'news']);
+
+Route::prefix('program')->group(function () {
+    Route::get('/{slug}', [PageController::class, 'program']);
+});
+
+Route::get('/about', [PageController::class, 'aboutUs']);
