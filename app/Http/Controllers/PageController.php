@@ -6,8 +6,14 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-  public function home()
-  {
-    return view('home', ['title' => 'Home Page']);
+  public function index() {
+      return 'Hi! Selamat Datang di Website Laravel';
   }
+    public function about() {
+        return view('about', ['title' => 'about', 'nis' => '25978', 'nama' => 'Brian Ardhisswara', 'kelas' => 'XI RPA']);
+    }
+
+    public function article($id) {
+        return 'Halaman Artikel ke-' . $id;
+    }
 }
